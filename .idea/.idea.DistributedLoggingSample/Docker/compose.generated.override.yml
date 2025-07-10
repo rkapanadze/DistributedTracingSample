@@ -1,0 +1,70 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  servicea.api:
+    build:
+      context: "/Users/user/RiderProjects/DistributedLoggingSample"
+      dockerfile: "ServiceA.API/Dockerfile"
+      target: "base"
+      args:
+        BUILD_CONFIGURATION: "Debug"
+    command: []
+    entrypoint:
+    - "/opt/JetBrains/RiderDebuggerTools/linux-arm64/JetBrains.Debugger.Worker"
+    - "--runtimeconfig"
+    - "/opt/JetBrains/RiderDebuggerTools/JetBrains.Debugger.Worker.runtimeconfig.json"
+    - "--mode=server"
+    - "--frontend-port=57000"
+    - "--backend-port=57200"
+    - "--roslyn-worker-port=57400"
+    - "--timeout=60"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+      RIDER_DEBUGGER_LOG_DIR: "/var/opt/JetBrains/RiderDebuggerTools"
+      RESHARPER_LOG_CONF: "/etc/opt/JetBrains/RiderDebuggerTools/backend-log.xml"
+    image: "servicea.api:dev"
+    ports:
+    - "127.0.0.1:57027:57000"
+    - "127.0.0.1:57227:57200"
+    - "127.0.0.1:57427:57400"
+    volumes:
+    - "/Users/user/RiderProjects/DistributedLoggingSample/ServiceA.API:/app:rw"
+    - "/Users/user/RiderProjects/DistributedLoggingSample:/src:rw"
+    - "/Users/user/.nuget/packages:/home/app/.nuget/packages"
+    - "/Users/user/.local/share/JetBrains/RiderRemoteDebugger/2024.3.8/LinuxArm64:/opt/JetBrains/RiderDebuggerTools"
+    - "/Users/user/Library/Logs/JetBrains/Rider2024.3/DebuggerWorker/JetBrains.Debugger.Worker.2025_7_11_01_25_52:/var/opt/JetBrains/RiderDebuggerTools:rw"
+    working_dir: "/app"
+  serviceb:
+    build:
+      context: "/Users/user/RiderProjects/DistributedLoggingSample"
+      dockerfile: "ServiceB.API/Dockerfile"
+      target: "base"
+      args:
+        BUILD_CONFIGURATION: "Debug"
+    command: []
+    entrypoint:
+    - "/opt/JetBrains/RiderDebuggerTools/linux-arm64/JetBrains.Debugger.Worker"
+    - "--runtimeconfig"
+    - "/opt/JetBrains/RiderDebuggerTools/JetBrains.Debugger.Worker.runtimeconfig.json"
+    - "--mode=server"
+    - "--frontend-port=57000"
+    - "--backend-port=57200"
+    - "--roslyn-worker-port=57400"
+    - "--timeout=60"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+      RIDER_DEBUGGER_LOG_DIR: "/var/opt/JetBrains/RiderDebuggerTools"
+      RESHARPER_LOG_CONF: "/etc/opt/JetBrains/RiderDebuggerTools/backend-log.xml"
+    image: "serviceb.api:dev"
+    ports:
+    - "127.0.0.1:57028:57000"
+    - "127.0.0.1:57228:57200"
+    - "127.0.0.1:57428:57400"
+    volumes:
+    - "/Users/user/RiderProjects/DistributedLoggingSample/ServiceB.API:/app:rw"
+    - "/Users/user/RiderProjects/DistributedLoggingSample:/src:rw"
+    - "/Users/user/.nuget/packages:/home/app/.nuget/packages"
+    - "/Users/user/.local/share/JetBrains/RiderRemoteDebugger/2024.3.8/LinuxArm64:/opt/JetBrains/RiderDebuggerTools"
+    - "/Users/user/Library/Logs/JetBrains/Rider2024.3/DebuggerWorker/JetBrains.Debugger.Worker.2025_7_11_01_25_52:/var/opt/JetBrains/RiderDebuggerTools:rw"
+    working_dir: "/app"

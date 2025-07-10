@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceA.API", "ServiceA.API\ServiceA.API.csproj", "{E73BA696-8800-4772-976F-06E17714052B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B2B20D29-3970-4AB2-B53D-F5A4B3320069}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceB.API", "ServiceB.API\ServiceB.API.csproj", "{6F1F7D97-4A9B-4158-B548-EF1871E5F7B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E73BA696-8800-4772-976F-06E17714052B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E73BA696-8800-4772-976F-06E17714052B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E73BA696-8800-4772-976F-06E17714052B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E73BA696-8800-4772-976F-06E17714052B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F1F7D97-4A9B-4158-B548-EF1871E5F7B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F1F7D97-4A9B-4158-B548-EF1871E5F7B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F1F7D97-4A9B-4158-B548-EF1871E5F7B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F1F7D97-4A9B-4158-B548-EF1871E5F7B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

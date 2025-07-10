@@ -1,0 +1,39 @@
+﻿services:
+  servicea.api:
+    image: servicea.api
+    build:
+      context: .
+      dockerfile: ServiceA.API/Dockerfile
+    ports:
+      - "5100:5000"
+      - "5101:5001"
+    environment:
+      ASPNETCORE_URLS: "http://0.0.0.0:5000"
+      OTEL_EXPORTER_OTLP_ENDPOINT: "http://service.seq:5341/ingest/otlp/v1/traces"
+      OTEL_EXPORTER_OTLP_PROTOCOL: "http/protobuf"
+
+
+  serviceb.api:
+    image: serviceb.api
+    build:
+      context: .
+      dockerfile: ServiceB.API/Dockerfile
+    ports:
+      - "5200:5002"
+      - "5201:5003"
+    environment:
+      ASPNETCORE_URLS: "http://0.0.0.0:5002"
+      OTEL_EXPORTER_OTLP_ENDPOINT: "http://service.seq:5341/ingest/otlp/v1/traces"
+      OTEL_EXPORTER_OTLP_PROTOCOL: "http/protobuf"
+
+  service.seq:
+    image: datalust/seq:latest
+    container_name: Service.Seq
+    volumes:
+      - ./.container/seq:/data
+    environment:
+      - ACCEPT_EULA=Y
+      - SEQ_FIRSTRUN_ADMINPASSWORD=admin123
+    ports:
+      - 5341:5341
+      - 8081:80
